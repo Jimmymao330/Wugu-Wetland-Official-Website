@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>五股濕地生態園區 | Wugu Wetland</title>
+  <meta name="description" content="五股濕地生態園區，位於新北市五股區，是台灣重要的濕地生態系統，提供豐富的生物多樣性與生態教育資源。" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="五股濕地生態園區" />
+  <meta property="og:description" content="國家級重要濕地，守護城市中的自然寶地。" />
+  <meta property="og:type" content="website" />
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS — 對應 tailwind.config.js 色彩定義
+       ============================================================ */
+    :root {
+      --clr-dark-green:   #405935;
+      --clr-mid-green:    #7a9e6e;
+      --clr-light-green:  #c8d9b8;
+      --clr-bg-green:     #e8f0e0;
+      --clr-pale:         #f3f7ee;
+      --clr-sand:         #d4c9a8;
+      --clr-slate-blue:   #6b8fa3;
+      --clr-white:        #ffffff;
+      --clr-text:         #2c3a28;
+      --clr-text-muted:   #5a6e52;
+      --clr-btn-bg:       #405935;
+      --clr-btn-hover:    #2e4027;
+
+      --radius-blob: 60% 40% 55% 45% / 50% 45% 55% 50%;
+      --transition-base: 0.3s ease;
+      --font-heading: 'Noto Serif TC', 'Georgia', serif;
+      --font-body:    'Noto Sans TC', 'PingFang TC', system-ui, sans-serif;
+    }
+
+    /* ============================================================
+       RESET & BASE
+       ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-body);
+      color: var(--clr-text);
+      background: var(--clr-white);
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* Google Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap');
+
+    /* ============================================================
+       UTILITY
+       ============================================================ */
+    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+    .container--wide { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 10px 22px; border-radius: 999px;
+      background: var(--clr-btn-bg); color: var(--clr-white);
+      font-size: 0.9rem; font-family: var(--font-body);
+      font-weight: 500; cursor: pointer; border: none;
+      transition: background var(--transition-base), transform var(--transition-base);
+    }
+    .btn:hover { background: var(--clr-btn-hover); transform: translateY(-1px); }
+    .btn--outline {
+      background: transparent; color: var(--clr-dark-green);
+      border: 1.5px solid var(--clr-dark-green);
+    }
+    .btn--outline:hover { background: var(--clr-dark-green); color: var(--clr-white); }
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      color: var(--clr-dark-green);
+      font-weight: 700;
+    }
+    .divider {
+      border: none; border-top: 2px solid var(--clr-dark-green);
+      margin: 12px 0 24px;
+    }
+
+    /* Scroll reveal — initial state */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ============================================================
+       NAVBAR
+       ============================================================ */
+    .navbar {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--clr-bg-green);
+      padding: 0 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+      box-shadow: 0 1px 6px rgba(64,89,53,0.08);
+    }
+    .navbar__logo { display: flex; align-items: center; gap: 8px; }
+    .navbar__logo-img { height: 46px; width: auto; }
+    .navbar__logo-text {
+      font-family: var(--font-heading);
+      font-size: 1rem; font-weight: 700;
+      color: var(--clr-dark-green);
+      line-height: 1.2;
+    }
+    .navbar__actions { display: flex; align-items: center; gap: 10px; }
+    .navbar__ext-link {
+      padding: 7px 16px; border-radius: 999px;
+      border: 1.5px solid var(--clr-dark-green);
+      font-size: 0.85rem; color: var(--clr-dark-green);
+      transition: all var(--transition-base);
+      white-space: nowrap;
+    }
+    .navbar__ext-link:hover { background: var(--clr-dark-green); color: var(--clr-white); }
+    .navbar__hamburger {
+      width: 36px; height: 36px; background: none; border: none;
+      cursor: pointer; display: flex; flex-direction: column;
+      justify-content: center; gap: 5px; padding: 4px;
+      border-radius: 6px; transition: background var(--transition-base);
+    }
+    .navbar__hamburger:hover { background: rgba(64,89,53,0.1); }
+    .navbar__hamburger span {
+      display: block; height: 2px; background: var(--clr-dark-green);
+      border-radius: 2px; transition: all 0.3s ease;
+    }
+    /* Hamburger → X animation */
+    .navbar__hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .navbar__hamburger.open span:nth-child(2) { opacity: 0; }
+    .navbar__hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile nav drawer */
+    .nav-drawer {
+      position: fixed; top: 64px; left: 0; right: 0;
+      background: var(--clr-bg-green);
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.35s ease, box-shadow 0.3s;
+      z-index: 99;
+    }
+    .nav-drawer.open { max-height: 400px; box-shadow: 0 8px 20px rgba(64,89,53,0.12); }
+    .nav-drawer__list { list-style: none; padding: 12px 0 20px; }
+    .nav-drawer__list li a {
+      display: block; padding: 12px 32px;
+      font-size: 1rem; color: var(--clr-dark-green);
+      font-weight: 500; transition: background var(--transition-base);
+    }
+    .nav-drawer__list li a:hover { background: rgba(64,89,53,0.08); }
+
+    /* ============================================================
+       HERO CAROUSEL
+       ============================================================ */
+    .hero {
+      position: relative; overflow: hidden;
+      height: min(56vw, 520px);
+      background: var(--clr-dark-green);
+    }
+    .hero__slides { display: flex; height: 100%; transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
+    .hero__slide {
+      min-width: 100%; height: 100%; position: relative; flex-shrink: 0;
+    }
+    .hero__slide img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .hero__overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(40,60,30,0.45) 0%, transparent 60%);
+    }
+    .hero__cta {
+      position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+      background: rgba(64,89,53,0.75); backdrop-filter: blur(4px);
+      color: var(--clr-white); padding: 10px 28px; border-radius: 999px;
+      font-size: 0.95rem; font-weight: 500; border: 1px solid rgba(255,255,255,0.35);
+      cursor: pointer; transition: background var(--transition-base);
+      white-space: nowrap;
+    }
+    .hero__cta:hover { background: rgba(64,89,53,0.95); }
+    .hero__nav-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(255,255,255,0.7); border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; transition: all var(--transition-base);
+    }
+    .hero__nav-btn:hover { background: var(--clr-white); }
+    .hero__nav-btn--prev { left: 16px; }
+    .hero__nav-btn--next { right: 16px; }
+    .hero__dots {
+      position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 8px;
+    }
+    .hero__dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(255,255,255,0.5); cursor: pointer;
+      transition: background var(--transition-base), transform var(--transition-base);
+      border: none;
+    }
+    .hero__dot.active { background: var(--clr-white); transform: scale(1.3); }
+
+    /* ============================================================
+       NEWS SECTION — with blob decoration image
+       ============================================================ */
+    .news-section {
+      padding: 72px 0 80px;
+      background: var(--clr-white);
+    }
+    .news-section__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      max-width: 900px; margin: 0 auto; padding: 0 24px;
+    }
+    .news-section__blob-wrap {
+      position: relative; display: flex; justify-content: center; align-items: center;
+    }
+    .blob-img {
+      width: clamp(200px, 38vw, 340px);
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 60% 40% 55% 45% / 50% 45% 55% 50%;
+      background: var(--clr-light-green);
+    }
+    .blob-img-placeholder {
+      width: clamp(200px, 38vw, 340px);
+      aspect-ratio: 1;
+      border-radius: 60% 40% 55% 45% / 50% 45% 55% 50%;
+      background: var(--clr-light-green);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3rem;
+    }
+    .news-section__content { }
+    .news-list { list-style: none; margin: 0 0 24px; display: flex; flex-direction: column; gap: 0; }
+    .news-item {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--clr-light-green);
+      cursor: pointer; transition: background var(--transition-base);
+    }
+    .news-item:hover { background: var(--clr-pale); border-radius: 6px;}
+    .news-item__title {
+      font-weight: 600; font-size: 0.95rem; margin-bottom: 6px;
+      color: var(--clr-dark-green);
+    }
+    .news-item__meta { font-size: 0.8rem; color: var(--clr-text-muted); margin-bottom: 4px; }
+    .news-item__desc { font-size: 0.85rem; color: var(--clr-text-muted); line-height: 1.6; }
+    /* Skeleton Loading */
+    .skeleton {
+      background: linear-gradient(90deg, var(--clr-light-green) 25%, var(--clr-bg-green) 50%, var(--clr-light-green) 75%);
+      background-size: 200% 100%;
+      animation: skeleton-pulse 1.5s infinite;
+      border-radius: 4px;
+    }
+    @keyframes skeleton-pulse {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+    .skeleton-line { height: 14px; margin-bottom: 8px; }
+    .skeleton-line--short { width: 40%; }
+    .skeleton-line--med   { width: 70%; }
+    .skeleton-line--long  { width: 90%; }
+    /* Error state */
+    .news-error {
+      color: var(--clr-text-muted); font-size: 0.9rem;
+      padding: 24px 0; text-align: center;
+    }
+
+    /* ============================================================
+       ABOUT SECTION — wave top, light green bg
+       ============================================================ */
+    .about-section {
+      position: relative;
+      background: var(--clr-bg-green);
+      padding: 72px 0 80px;
+    }
+    .wave-top, .wave-bottom {
+      position: absolute; left: 0; right: 0;
+      height: 48px; overflow: hidden;
+    }
+    .wave-top { top: -1px; }
+    .wave-bottom { bottom: -1px; }
+    .wave-top svg, .wave-bottom svg { width: 100%; height: 100%; }
+
+    .about-section__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px; align-items: center;
+      max-width: 900px; margin: 0 auto; padding: 0 24px;
+    }
+    .about-section__img {
+      border-radius: 16px; overflow: hidden;
+      box-shadow: 0 8px 32px rgba(64,89,53,0.15);
+      aspect-ratio: 4/3; background: var(--clr-light-green);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem;
+    }
+    .about-section__img img { width: 100%; height: 100%; object-fit: cover; }
+    .about-section__meta { font-size: 0.85rem; color: var(--clr-text-muted); margin-bottom: 8px; }
+    .about-section__desc {
+      font-size: 0.9rem; line-height: 1.8;
+      color: var(--clr-text-muted); margin-bottom: 24px;
+    }
+
+    /* ============================================================
+       ECOLOGY SECTION
+       ============================================================ */
+    .ecology-section {
+      padding: 80px 0;
+      background: var(--clr-white);
+    }
+    .ecology-section__header {
+      display: flex; align-items: baseline;
+      justify-content: space-between; flex-wrap: wrap; gap: 12px;
+      max-width: 900px; margin: 0 auto 8px; padding: 0 24px;
+    }
+    .ecology-section__desc {
+      font-size: 0.9rem; color: var(--clr-text-muted);
+      max-width: 900px; margin: 0 auto 32px; padding: 0 24px;
+    }
+    .ecology-grid {
+      max-width: 960px; margin: 0 auto; padding: 0 0;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+    .ecology-card {
+      position: relative; overflow: hidden; cursor: pointer;
+    }
+    .ecology-card img, .ecology-card__placeholder {
+      width: 100%; aspect-ratio: 4/3; object-fit: cover;
+      transition: transform 0.5s ease;
+      display: block;
+    }
+    .ecology-card__placeholder {
+      background: var(--clr-light-green);
+      display: flex; align-items: center; justify-content: center; font-size: 2rem;
+    }
+    .ecology-card:hover img { transform: scale(1.04); }
+    .ecology-card__label {
+      text-align: center; padding: 10px 0;
+      font-size: 0.9rem; color: var(--clr-dark-green); font-weight: 500;
+    }
+
+    /* Map */
+    .map-section {
+      position: relative; padding: 0;
+      background: var(--clr-white);
+    }
+    .map-section__img-wrap {
+      position: relative; cursor: pointer; overflow: hidden;
+    }
+    .map-section__img-wrap img {
+      width: 100%; object-fit: cover; display: block;
+    }
+    .map-section__placeholder {
+      width: 100%; aspect-ratio: 16/7;
+      background: linear-gradient(135deg, var(--clr-light-green), var(--clr-sand));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem; color: var(--clr-text-muted);
+    }
+    .map-btn {
+      position: absolute; bottom: 50%; left: 50%;
+      transform: translate(-50%, 50%);
+    }
+
+    /* ============================================================
+       SPECIES SECTION — 4-column colour blocks
+       ============================================================ */
+    .species-section {
+      padding: 80px 0 0;
+      background: var(--clr-pale);
+    }
+    .species-section__intro {
+      max-width: 900px; margin: 0 auto 40px; padding: 0 24px;
+    }
+    .species-section__intro .section-title { margin-bottom: 12px; }
+    .species-section__intro p {
+      font-size: 0.9rem; color: var(--clr-text-muted); line-height: 1.8;
+    }
+    .species-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .species-card {
+      padding: 40px 24px 28px;
+      display: flex; flex-direction: column; align-items: flex-start;
+      min-height: 280px; position: relative; overflow: hidden;
+    }
+    .species-card:nth-child(1) { background: var(--clr-mid-green); }
+    .species-card:nth-child(2) { background: var(--clr-sand); }
+    .species-card:nth-child(3) { background: var(--clr-slate-blue); }
+    .species-card:nth-child(4) { background: var(--clr-mid-green); }
+    .species-card__silhouette {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      margin-bottom: 16px;
+      filter: brightness(0); opacity: 0.8;
+      line-height: 1;
+    }
+    .species-card__name {
+      font-family: var(--font-heading);
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      font-weight: 700; color: var(--clr-text);
+      margin-top: auto;
+    }
+
+    /* ============================================================
+       PHOTO BANNER — full-width panoramic
+       ============================================================ */
+    .photo-banner {
+      height: clamp(180px, 25vw, 280px);
+      overflow: hidden; position: relative;
+    }
+    .photo-banner img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .photo-banner__placeholder {
+      width: 100%; height: 100%;
+      background: var(--clr-light-green);
+      display: flex; align-items: center; justify-content: center; font-size: 2rem;
+    }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    .footer {
+      background: var(--clr-bg-green);
+      padding: 48px 24px 32px;
+      text-align: center;
+      position: relative;
+    }
+    .footer::before {
+      content: ''; display: block;
+      height: 48px; overflow: hidden;
+      position: absolute; top: -47px; left: 0; right: 0;
+    }
+    .footer__logo { height: 56px; margin: 0 auto 20px; }
+    .footer__info {
+      font-size: 0.85rem; color: var(--clr-text-muted);
+      line-height: 2; margin-bottom: 20px;
+    }
+    .footer__info a:hover{
+      font-size: 0.85rem; color: var(--clr-mid-green);
+      line-height: 2; margin-bottom: 20px;
+    }
+    .footer__socials {
+      display: flex; gap: 12px; justify-content: center; margin-bottom: 24px;
+    }
+    .footer__social-btn {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: var(--clr-dark-green); color: var(--clr-white);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; transition: all var(--transition-base);
+      text-decoration: none;
+    }
+    .footer__social-btn:hover { background: var(--clr-btn-hover); transform: translateY(-2px); }
+    .footer__copy { font-size: 0.75rem; color: var(--clr-text-muted); }
+
+    /* ============================================================
+       BACK TO TOP
+       ============================================================ */
+    .back-to-top {
+      position: fixed; bottom: 28px; right: 24px; z-index: 50;
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--clr-dark-green); color: var(--clr-white);
+      border: none; cursor: pointer; font-size: 1.1rem;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px rgba(64,89,53,0.3);
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .back-to-top.visible { opacity: 1; pointer-events: all; }
+    .back-to-top:hover { transform: translateY(-3px); }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 768px) {
+      .news-section__inner { grid-template-columns: 1fr; }
+      .news-section__blob-wrap { display: none; }
+      .about-section__inner { grid-template-columns: 1fr; }
+      .about-section__img { order: -1; }
+      .ecology-grid { grid-template-columns: 1fr 1fr; }
+      .species-grid { grid-template-columns: 1fr 1fr; }
+      .navbar { padding: 0 16px; }
+    }
+    @media (max-width: 480px) {
+      .ecology-grid { grid-template-columns: 1fr; }
+      .species-grid { grid-template-columns: 1fr 1fr; }
+      .hero { height: 65vw; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVBAR — Sticky, Hamburger, External Links
+       ============================================================ -->
+  <header>
+    <nav class="navbar" role="navigation" aria-label="主要導覽">
+      <a class="navbar__logo" href="#" aria-label="五股濕地生態園區 首頁">
+        <!-- Logo SVG placeholder — replace with actual logo img -->
+        <img idth="130" height="44" viewBox="0 0 130 44" fill="none" aria-hidden="true" src="images/logo-green.png" alt="" width="200px">
+      </a>
+
+      <div class="navbar__actions">
+        <a href="https://www.sow.org.tw/event/search?title=%E4%BA%94%E8%82%A1%E6%BF%95%E5%9C%B0&suo_shu_fen_hui_37=592&event_type=All&is_monetary=All" class="navbar__ext-link" aria-label="參與活動">參與活動</a>
+        <a href="https://www.sow.org.tw" class="navbar__ext-link" aria-label="荒野官網">荒野官網</a>
+        <button class="navbar__hamburger" id="hamburger-btn"
+          aria-expanded="false" aria-controls="nav-drawer" aria-label="開啟選單">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile drawer menu -->
+    <div class="nav-drawer" id="nav-drawer" role="menu">
+      <ul class="nav-drawer__list">
+        <li><a href="#news"     role="menuitem">最新消息</a></li>
+        <li><a href="#about"    role="menuitem">關於五股濕地</a></li>
+        <li><a href="#ecology"  role="menuitem">生態環境</a></li>
+        <li><a href="#species"  role="menuitem">特色物種</a></li>
+        <li><a href="javascript:void(0)" role="menuitem">棲地工作</a></li>
+        <li><a href="javascript:void(0)" role="menuitem">互動遊戲</a></li>
+        <li><a href="javascript:void(0)" role="menuitem">年度時程</a></li>
+        <li><a href="javascript:void(0)" role="menuitem">網路相簿</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============================================================
+         HERO CAROUSEL
+         ============================================================ -->
+    <section class="hero" aria-label="主視覺輪播" id="hero">
+      <div class="hero__slides" id="hero-slides" role="region" aria-live="polite">
+        <!-- Slide 1 — placeholder: replace src with real images -->
+        <div class="hero__slide" role="img" aria-label="＿＿＿＿＿＿＿">
+          <div style="width:100%;height:100%;background:linear-gradient(160deg,#5a7a4a,#2e4027);display:flex;align-items:center;justify-content:center;font-size:5rem;"><img src="images/index-slides-1.png" alt=""></div>
+          <div class="hero__overlay"></div>
+        </div>
+        <div class="hero__slide" role="img" aria-label="＿＿＿＿＿＿＿">
+          <div style="width:100%;height:100%;background:linear-gradient(160deg,#6b8fa3,#405935);display:flex;align-items:center;justify-content:center;font-size:5rem;"><!--預留相片放置位置--></div>
+          <div class="hero__overlay"></div>
+        </div>
+        <div class="hero__slide" role="img" aria-label="＿＿＿＿＿＿＿">
+          <div style="width:100%;height:100%;background:linear-gradient(160deg,#7a9e6e,#405935);display:flex;align-items:center;justify-content:center;font-size:5rem;"><!--預留相片放置位置--></div>
+          <div class="hero__overlay"></div>
+        </div>
+      </div>
+
+      <button class="hero__nav-btn hero__nav-btn--prev" id="carousel-prev"
+        aria-label="上一張" onclick="">‹</button>
+      <button class="hero__nav-btn hero__nav-btn--next" id="carousel-next"
+        aria-label="下一張" onclick="">›</button>
+
+      <div class="hero__dots" id="carousel-dots" role="tablist" aria-label="輪播指示點">
+        <!-- dots inserted by JS -->
+      </div>
+
+      <button class="hero__cta" onclick="document.getElementById('news').scrollIntoView({behavior:'smooth'})">
+        向下看更多
+      </button>
+    </section>
+
+    <!-- ============================================================
+         NEWS SECTION — with Stale-While-Revalidate cache
+         ============================================================ -->
+    <section class="news-section" id="news" aria-labelledby="news-title">
+      <div class="news-section__inner">
+        <div class="news-section__blob-wrap reveal" aria-hidden="true">
+          <!-- Replace with actual photo; keep blob border-radius via CSS -->
+          <img src="images/index-photo-1.png" alt="">
+        </div>
+        <div class="news-section__content">
+          <h2 class="section-title" id="news-title">最新消息</h2>
+          <hr class="divider" />
+          <!-- News list: populated by JS -->
+          <ul class="news-list reveal" id="news-list" aria-label="最新消息列表">
+            <!-- Skeleton loading state -->
+            <li class="news-item" aria-hidden="true">
+              <div class="skeleton skeleton-line skeleton-line--short"></div>
+              <div class="skeleton skeleton-line skeleton-line--long" style="margin-top:8px"></div>
+              <div class="skeleton skeleton-line skeleton-line--med"></div>
+            </li>
+            <li class="news-item" aria-hidden="true">
+              <div class="skeleton skeleton-line skeleton-line--short"></div>
+              <div class="skeleton skeleton-line skeleton-line--long" style="margin-top:8px"></div>
+              <div class="skeleton skeleton-line skeleton-line--med"></div>
+            </li>
+            <li class="news-item" aria-hidden="true">
+              <div class="skeleton skeleton-line skeleton-line--short"></div>
+              <div class="skeleton skeleton-line skeleton-line--long" style="margin-top:8px"></div>
+            </li>
+          </ul>
+          <a href="javascript:void(0)" class="btn" id="news-more-btn" aria-label="查看更多活動">
+            更多活動 ›
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ABOUT SECTION
+         ============================================================ -->
+    <section class="about-section" id="about" aria-labelledby="about-title">
+      <!-- wave top -->
+      <div class="wave-top" aria-hidden="true">
+        <svg viewBox="0 0 1440 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,48 C360,0 1080,0 1440,48 L1440,0 L0,0 Z" fill="#ffffff"/>
+        </svg>
+      </div>
+
+      <div class="about-section__inner">
+          <img src="images/index-photo-2.png" alt="">
+        <div class="reveal" style="transition-delay:0.15s">
+          <h2 class="section-title" id="about-title">關於五股濕地</h2>
+          <hr class="divider" />
+          <p class="about-section__meta">國家級重要濕地 ・ 新北市五股區</p>
+          <p class="about-section__desc">
+            文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字
+            文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字
+            文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字
+          </p>
+          <a href="javascript:void(0)" class="btn" aria-label="關於五股濕地詳細內容">更多內容 ›</a>
+        </div>
+      </div>
+
+      <!-- wave bottom -->
+      <div class="wave-bottom" aria-hidden="true">
+        <svg viewBox="0 0 1440 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,0 C360,48 1080,48 1440,0 L1440,48 L0,48 Z" fill="#ffffff"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ECOLOGY SECTION — 3-column photo grid + interactive map
+         ============================================================ -->
+    <section class="ecology-section" id="ecology" aria-labelledby="ecology-title">
+      <div class="ecology-section__header">
+        <h2 class="section-title" id="ecology-title">生態環境</h2>
+        <a href="javascript:void(0)" class="btn btn--outline" aria-label="生態環境詳細內容">詳細內容 ›</a>
+      </div>
+      <hr class="divider" style="max-width:900px;margin:0 auto 8px;padding:0 24px;display:block;" />
+      <p class="ecology-section__desc">
+        文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字
+      </p>
+      <div class="ecology-grid reveal">
+        <div class="ecology-card">
+          <div class="ecology-card__placeholder" aria-label="＿＿＿＿＿"><img src="images/index-photo-3.png" alt="＿＿＿＿＿＿"></div>
+          <p class="ecology-card__label">＿＿＿＿＿</p>
+        </div>
+        <div class="ecology-card">
+          <div class="ecology-card__placeholder" aria-label="＿＿＿＿＿"><img src="images/index-photo-4.png" alt="＿＿＿＿＿＿"></div>
+          <p class="ecology-card__label">＿＿＿＿＿</p>
+        </div>
+        <div class="ecology-card">
+          <div class="ecology-card__placeholder" aria-label="＿＿＿＿＿"><img src="images/index-photo-5.png" alt="＿＿＿＿＿＿"></div>
+          <p class="ecology-card__label">＿＿＿＿＿＿</p>
+        </div>
+      </div>
+
+      <!-- Interactive Map -->
+      <div class="map-section reveal" style="transition-delay:0.2s; margin-top:40px; position:relative;">
+        <div class="map-section__img-wrap" role="img" aria-label="五股濕地互動地圖（點擊開啟）" tabindex="0">
+          <div class="map-section__placeholder"><img src="images/map.png" alt="＿＿＿＿＿＿" height="300px"></div>
+          <button class="btn map-btn" style="position:absolute;bottom:24px;left:50%;transform:translateX(-50%);"
+            aria-label="開啟互動地圖">
+            互動地圖
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SPECIES SECTION — 4-column illustrated blocks
+         ============================================================ -->
+    <section class="species-section" id="species" aria-labelledby="species-title">
+      <div class="species-section__intro reveal">
+        <h2 class="section-title" id="species-title">特色物種</h2>
+        <p>文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字</p>
+      </div>
+      <div class="species-grid" role="list">
+        <article class="species-card reveal" role="listitem" tabindex="0" aria-label="水鳥候鳥">
+          <div class="species-card__silhouette" aria-hidden="true">🦆</div>
+          <h3 class="species-card__name">水鳥・候鳥</h3>
+        </article>
+        <article class="species-card reveal" role="listitem" style="transition-delay:0.1s" tabindex="0" aria-label="招潮蟹">
+          <div class="species-card__silhouette" aria-hidden="true">🦀</div>
+          <h3 class="species-card__name">招潮蟹</h3>
+        </article>
+        <article class="species-card reveal" role="listitem" style="transition-delay:0.2s" tabindex="0" aria-label="猛禽">
+          <div class="species-card__silhouette" aria-hidden="true">🦅</div>
+          <h3 class="species-card__name">猛禽</h3>
+        </article>
+        <article class="species-card reveal" role="listitem" style="transition-delay:0.3s" tabindex="0" aria-label="四斑細蟌">
+          <div class="species-card__silhouette" aria-hidden="true">🦟</div>
+          <h3 class="species-card__name">四斑細蟌</h3>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PHOTO BANNER — full-width panoramic strip
+         ============================================================ -->
+    <div class="photo-banner" aria-label="五股濕地全景照片">
+      <div class="photo-banner__placeholder"><img src="images/index-photo-bottom.png" alt=""></div>
+    </div>
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <!-- wave decoration above footer -->
+    <svg viewBox="0 0 1440 48" preserveAspectRatio="none"
+      style="position:absolute;top:-47px;left:0;right:0;width:100%;height:48px;" aria-hidden="true">
+      <path d="M0,0 C360,48 1080,48 1440,0 L1440,48 L0,48 Z" fill="#e8f0e0"/>
+    </svg>
+
+    <img class="footer__logo" viewBox="0 0 160 56" aria-label="五股濕地生態園區 Logo" src="images/logo-green.png" alt="">
+    <svg class="footer__logo" viewBox="0 0 160 56" aria-label="五股濕地生態園區 Logo">
+
+    </svg>
+
+    <address class="footer__info" style="font-style:normal;">
+      地址：<a href="https://maps.app.goo.gl/PuJw7zFUjeeEWEgE9">新北市蘆洲區 成蘆大橋下方</a><br />
+      信箱：<a href="mailto:sowtpe07@wilderness.tw">sowtpe07@wilderness.tw</a><br /><br />
+      <a href="https://www.hrcm.ntpc.gov.tw/HtmlPageDetail/%E4%BA%94%E8%82%A1%E6%BF%95%E5%9C%B0">高灘地工程管理處</a>｜<a href="https://www.hrcmntmp.ntpc.gov.tw/facility-detail?id=baea2841-a0de-4f87-a1c0-925fd7c9f307">新北大都會公園</a>
+    </address>
+
+    <nav class="footer__socials" aria-label="社群媒體連結">
+      <a href="https://www.facebook.com/wuguwetland/?locale=zh_TW" class="footer__social-btn" aria-label="Facebook">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/sowtpe/" class="footer__social-btn" aria-label="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@sowtaiwan/featured" class="footer__social-btn" aria-label="YouTube">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#405A35"/></svg>
+      </a>
+    </nav>
+    <p class="footer__copy">© 2025 五股濕地生態園區 · 荒野保護協會</p>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="back-to-top" aria-label="回到頂部">↑</button>
+
+  <!-- ============================================================
+       JAVASCRIPT — Vanilla JS only, no external dependencies
+       ============================================================ -->
+  <script>
+    // ──────────────────────────────────────────────
+    // 1. HAMBURGER MENU
+    // ──────────────────────────────────────────────
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const navDrawer    = document.getElementById('nav-drawer');
+
+    hamburgerBtn.addEventListener('click', () => {
+      const isOpen = navDrawer.classList.toggle('open');
+      hamburgerBtn.classList.toggle('open', isOpen);
+      hamburgerBtn.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    // Close drawer when a link is clicked
+    navDrawer.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navDrawer.classList.remove('open');
+        hamburgerBtn.classList.remove('open');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // ──────────────────────────────────────────────
+    // 2. HERO CAROUSEL — Vanilla JS
+    // ──────────────────────────────────────────────
+    (() => {
+      const slidesWrap = document.getElementById('hero-slides');
+      const slides     = slidesWrap.querySelectorAll('.hero__slide');
+      const dotsWrap   = document.getElementById('carousel-dots');
+      const prevBtn    = document.getElementById('carousel-prev');
+      const nextBtn    = document.getElementById('carousel-next');
+      let current = 0;
+      let timer;
+
+      // Build dots
+      slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'hero__dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('role', 'tab');
+        dot.setAttribute('aria-label', `第 ${i+1} 張`);
+        dot.setAttribute('aria-selected', String(i === 0));
+        dot.addEventListener('click', () => goTo(i));
+        dotsWrap.appendChild(dot);
+      });
+
+      function goTo(idx) {
+        slides[current].removeAttribute('aria-current');
+        current = (idx + slides.length) % slides.length;
+        slidesWrap.style.transform = `translateX(-${current * 100}%)`;
+        dotsWrap.querySelectorAll('.hero__dot').forEach((d, i) => {
+          d.classList.toggle('active', i === current);
+          d.setAttribute('aria-selected', String(i === current));
+        });
+        slides[current].setAttribute('aria-current', 'true');
+        restartTimer();
+      }
+
+      function restartTimer() {
+        clearInterval(timer);
+        timer = setInterval(() => goTo(current + 1), 5000);
+      }
+
+      prevBtn.addEventListener('click', () => goTo(current - 1));
+      nextBtn.addEventListener('click', () => goTo(current + 1));
+
+      // Pause on hover
+      slidesWrap.addEventListener('mouseenter', () => clearInterval(timer));
+      slidesWrap.addEventListener('mouseleave', restartTimer);
+
+      // Keyboard support
+      slidesWrap.setAttribute('tabindex', '0');
+      slidesWrap.addEventListener('keydown', e => {
+        if (e.key === 'ArrowLeft')  goTo(current - 1);
+        if (e.key === 'ArrowRight') goTo(current + 1);
+      });
+
+      goTo(0);
+    })();
+
+    // ──────────────────────────────────────────────
+    // 3. NEWS SECTION — Stale-While-Revalidate Cache
+    //    Spec: if LocalStorage has data → render immediately,
+    //    then fetch in background; update only if data changed.
+    // ──────────────────────────────────────────────
+    (() => {
+      /**
+       * Replace this URL with your actual Google Apps Script Web App URL.
+       * The GAS should return JSON:
+       *   { status: "success", updatedAt: "...", data: [{id, title_zh, date_zh, desc_zh, url}] }
+       */
+      const GAS_URL  = 'YOUR_GAS_WEB_APP_URL_HERE';
+      const CACHE_KEY = 'wugu_news_cache';
+      const COOLDOWN  = 5 * 60 * 1000; // 5 minutes in ms
+      const newsList  = document.getElementById('news-list');
+      const lang      = document.documentElement.lang === 'en' ? 'en' : 'zh';
+
+      // ── Mock data for static preview (remove once GAS is live) ──
+      const MOCK_DATA = {
+        status: 'success',
+        updatedAt: new Date().toISOString(),
+        data: [
+          { id: '1', title_zh: '測試最新消息', title_en: 'Test News',
+            date_zh: '2025/04/20', desc_zh: '文字文字文字', url: '#預留連結' },
+          { id: '2', title_zh: '測試最新消息', title_en: 'Test News',
+            date_zh: '2025/04/20', desc_zh: '文字文字文字', url: '#預留連結' },
+          { id: '3', title_zh: '測試最新消息', title_en: 'Test News',
+            date_zh: '2025/04/20', desc_zh: '文字文字文字', url: '#預留連結' }
+        ]
+      };
+
+      /**
+       * Render news items into the list.
+       * @param {Array} items - Array of news objects
+       * @param {boolean} fade - Whether to apply fade-in transition
+       */
+      function renderNews(items, fade = false) {
+        if (!items || items.length === 0) {
+          newsList.innerHTML = '<li class="news-error">目前暫無最新消息。</li>';
+          return;
+        }
+        const html = items.slice(0, 4).map(item => {
+          // Fallback: if en title empty, use zh title
+          const title = (lang === 'en' && item.title_en) ? item.title_en : item.title_zh;
+          const desc  = (lang === 'en' && item.desc_en)  ? item.desc_en  : item.desc_zh;
+          return `
+            <li class="news-item">
+              <a href="${item.url || '#預留連結'}" style="display:block;text-decoration:none;color:inherit;"
+                aria-label="${title}">
+                <p class="news-item__title">${title}
+                  <span class="news-item__meta" style="font-weight:400;margin-left:8px;">${item.date_zh || ''}</span>
+                </p>
+                <p class="news-item__desc">${desc || ''}</p>
+              </a>
+            </li>`;
+        }).join('');
+
+        if (fade) {
+          newsList.style.opacity = '0';
+          setTimeout(() => {
+            newsList.innerHTML = html;
+            newsList.style.transition = 'opacity 0.4s';
+            newsList.style.opacity = '1';
+          }, 200);
+        } else {
+          newsList.innerHTML = html;
+        }
+      }
+
+      /** Load from LocalStorage if available */
+      function loadFromCache() {
+        try {
+          const raw = localStorage.getItem(CACHE_KEY);
+          if (!raw) return null;
+          return JSON.parse(raw);
+        } catch { return null; }
+      }
+
+      /** Save to LocalStorage */
+      function saveToCache(payload) {
+        try {
+          localStorage.setItem(CACHE_KEY, JSON.stringify(payload));
+        } catch (e) { console.warn('[NewsCache] LocalStorage write failed:', e); }
+      }
+
+      /** Check if enough time has passed since last fetch */
+      function isCooldownActive(cached) {
+        if (!cached?.fetchedAt) return false;
+        return (Date.now() - new Date(cached.fetchedAt).getTime()) < COOLDOWN;
+      }
+
+      /** Background fetch from GAS */
+      async function fetchFromGAS() {
+        /* ── STATIC PREVIEW MODE ──
+           In production, replace with actual fetch:
+           const res = await fetch(GAS_URL);
+           const json = await res.json();
+        */
+        // Simulate async fetch with mock data for preview
+        return new Promise(resolve => setTimeout(() => resolve(MOCK_DATA), 800));
+      }
+
+      /** Main data loading logic */
+      async function loadNews() {
+        const cached = loadFromCache();
+
+        // Step 1: Render cache immediately if available
+        if (cached?.data) {
+          renderNews(cached.data);
+          if (isCooldownActive(cached)) return; // Skip background fetch
+        }
+
+        // Step 2: Background fetch
+        try {
+          const json = await fetchFromGAS();
+          if (json?.status !== 'success' || !json.data) throw new Error('Invalid response');
+
+          // Step 3: Diff check — only update DOM if data has changed
+          const newHash   = JSON.stringify(json.data);
+          const oldHash   = cached ? JSON.stringify(cached.data) : null;
+          const hasChanged = newHash !== oldHash;
+
+          if (hasChanged) {
+            renderNews(json.data, !!cached); // fade only if replacing existing content
+          }
+
+          // Write to cache with fetch timestamp
+          saveToCache({ ...json, fetchedAt: new Date().toISOString() });
+
+        } catch (err) {
+          console.warn('[NewsCache] Fetch failed:', err);
+          if (!cached?.data) {
+            // No cache + fetch failed → show friendly error
+            newsList.innerHTML = `
+              <li class="news-error">
+                目前無法載入最新消息，請稍後再試。<br />
+                <small style="font-size:0.75rem;">Unable to load news. Please try again later.</small>
+              </li>`;
+          }
+          // If cache exists: silently keep showing old data (graceful degradation)
+        }
+      }
+
+      loadNews();
+    })();
+
+    // ──────────────────────────────────────────────
+    // 4. SCROLL REVEAL — Intersection Observer
+    // ──────────────────────────────────────────────
+    (() => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target); // Fire once only
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    })();
+
+    // ──────────────────────────────────────────────
+    // 5. BACK TO TOP
+    // ──────────────────────────────────────────────
+    (() => {
+      const btn = document.getElementById('back-to-top');
+      window.addEventListener('scroll', () => {
+        btn.classList.toggle('visible', window.scrollY > 500);
+      }, { passive: true });
+      btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    })();
+  </script>
+</body>
+</html>
