@@ -208,25 +208,14 @@
       grid-template-columns: 1fr 1fr;
       gap: 48px;
       align-items: center;
-      max-width: 900px; margin: 0 auto; padding: 0 24px;
+      max-width: 1000px; margin: 0 auto; padding: 0 24px;
     }
     .news-section__blob-wrap {
       position: relative; display: flex; justify-content: center; align-items: center;
     }
     .blob-img {
-      width: clamp(200px, 38vw, 340px);
+      width: clamp(1000px, 38vw, 340px);
       aspect-ratio: 1;
-      object-fit: cover;
-      border-radius: 60% 40% 55% 45% / 50% 45% 55% 50%;
-      background: var(--clr-light-green);
-    }
-    .blob-img-placeholder {
-      width: clamp(200px, 38vw, 340px);
-      aspect-ratio: 1;
-      border-radius: 60% 40% 55% 45% / 50% 45% 55% 50%;
-      background: var(--clr-light-green);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 3rem;
     }
     .news-section__content { }
     .news-list { list-style: none; margin: 0 0 24px; display: flex; flex-direction: column; gap: 0; }
@@ -237,11 +226,11 @@
     }
     .news-item:hover { background: var(--clr-pale); border-radius: 6px;}
     .news-item__title {
-      font-weight: 600; font-size: 0.95rem; margin-bottom: 6px;
+      font-weight: 600; font-size: 1.2rem; margin-bottom: 6px;
       color: var(--clr-dark-green);
     }
-    .news-item__meta { font-size: 0.8rem; color: var(--clr-text-muted); margin-bottom: 4px; }
-    .news-item__desc { font-size: 0.85rem; color: var(--clr-text-muted); line-height: 1.6; }
+    .news-item__meta { font-size: 1rem; color: var(--clr-text-muted); margin-bottom: 4px; }
+    .news-item__desc { font-size: 1rem; color: var(--clr-text-muted); line-height: 1.6; }
     /* Skeleton Loading */
     .skeleton {
       background: linear-gradient(90deg, var(--clr-light-green) 25%, var(--clr-bg-green) 50%, var(--clr-light-green) 75%);
@@ -259,7 +248,7 @@
     .skeleton-line--long  { width: 90%; }
     /* Error state */
     .news-error {
-      color: var(--clr-text-muted); font-size: 0.9rem;
+      color: var(--clr-text-muted); font-size: 1rem;
       padding: 24px 0; text-align: center;
     }
 
@@ -293,9 +282,9 @@
       font-size: 2.5rem;
     }
     .about-section__img img { width: 100%; height: 100%; object-fit: cover; }
-    .about-section__meta { font-size: 0.85rem; color: var(--clr-text-muted); margin-bottom: 8px; }
+    .about-section__meta { font-size: 1rem; color: var(--clr-text-muted); margin-bottom: 8px; }
     .about-section__desc {
-      font-size: 0.9rem; line-height: 1.8;
+      font-size: 1rem; line-height: 1.8;
       color: var(--clr-text-muted); margin-bottom: 24px;
     }
 
@@ -335,7 +324,7 @@
     .ecology-card:hover img { transform: scale(1.04); }
     .ecology-card__label {
       text-align: center; padding: 10px 0;
-      font-size: 0.9rem; color: var(--clr-dark-green); font-weight: 500;
+      font-size: 1rem; color: var(--clr-dark-green); font-weight: 500;
     }
 
     /* Map */
@@ -372,7 +361,7 @@
     }
     .species-section__intro .section-title { margin-bottom: 12px; }
     .species-section__intro p {
-      font-size: 0.9rem; color: var(--clr-text-muted); line-height: 1.8;
+      font-size: 1rem; color: var(--clr-text-muted); line-height: 1.8;
     }
     .species-grid {
       display: grid;
@@ -432,11 +421,11 @@
     }
     .footer__logo { height: 56px; margin: 0 auto 20px; }
     .footer__info {
-      font-size: 0.85rem; color: var(--clr-text-muted);
+      font-size: 1rem; color: var(--clr-text-muted);
       line-height: 2; margin-bottom: 20px;
     }
     .footer__info a:hover{
-      font-size: 0.85rem; color: var(--clr-mid-green);
+      font-size: 1rem; color: var(--clr-mid-green);
       line-height: 2; margin-bottom: 20px;
     }
     .footer__socials {
@@ -450,7 +439,7 @@
       text-decoration: none;
     }
     .footer__social-btn:hover { background: var(--clr-btn-hover); transform: translateY(-2px); }
-    .footer__copy { font-size: 0.75rem; color: var(--clr-text-muted); }
+    .footer__copy { font-size: 1rem; color: var(--clr-text-muted); }
 
     /* ============================================================
        BACK TO TOP
@@ -459,7 +448,7 @@
       position: fixed; bottom: 28px; right: 24px; z-index: 50;
       width: 44px; height: 44px; border-radius: 50%;
       background: var(--clr-dark-green); color: var(--clr-white);
-      border: none; cursor: pointer; font-size: 1.1rem;
+      border: none; cursor: pointer; font-size: 0.9rem;
       display: flex; align-items: center; justify-content: center;
       box-shadow: 0 4px 16px rgba(64,89,53,0.3);
       opacity: 0; pointer-events: none;
@@ -566,7 +555,7 @@
       <div class="news-section__inner">
         <div class="news-section__blob-wrap reveal" aria-hidden="true">
           <!-- Replace with actual photo; keep blob border-radius via CSS -->
-          <img src="images/index-photo-1.png" alt="">
+          <img class="blob-img" src="images/index-photo-1.png" alt="">
         </div>
         <div class="news-section__content">
           <h2 class="section-title" id="news-title">最新消息</h2>
@@ -741,7 +730,7 @@
   </footer>
 
   <!-- Back to Top -->
-  <button class="back-to-top" id="back-to-top" aria-label="回到頂部">↑</button>
+  <button class="back-to-top" id="back-to-top" aria-label="回到頂部">▲</button>
 
   <!-- ============================================================
        JAVASCRIPT — Vanilla JS only, no external dependencies
