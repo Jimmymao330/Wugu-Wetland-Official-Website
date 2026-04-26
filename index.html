@@ -96,7 +96,7 @@
        ============================================================ */
     .navbar {
       position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
-      background: rgba(232, 240, 224, 0.95); backdrop-filter: blur(8px);
+      background: rgba(232, 240, 224); backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       padding: 0 32px;
       display: flex; align-items: center; justify-content: space-between;
@@ -136,7 +136,7 @@
       transition: max-height 0.35s ease, box-shadow 0.3s;
       z-index: 99;
     }
-    .nav-drawer.open { max-height: 450px; box-shadow: 0 8px 20px rgba(64,89,53,0.12); }
+    .nav-drawer.open { max-height: 500px; box-shadow: 0 8px 20px rgba(64,89,53,0.12); }
     .nav-drawer__list { list-style: none; padding: 12px 0 20px; }
     .nav-drawer__list li a {
       display: block; padding: 12px 32px;
@@ -402,8 +402,12 @@
     /* ============================================================
        RESPONSIVE
        ============================================================ */
+    @media (min-width: 769px) {
+      .mobile-only { display: none; }
+    }
     @media (max-width: 768px) {
-      .navbar__ext-link.desktop-only { display: none; }
+      .desktop-only { display: none; }
+      .mobile-only { display: block; }
       .news-section__inner { grid-template-columns: 1fr; }
       .news-section__blob-wrap { display: none; }
       .about-section__inner { grid-template-columns: 1fr; }
@@ -430,8 +434,8 @@
         <img idth="130" height="44" viewBox="0 0 130 44" fill="none" aria-hidden="true" src="images/logo-green.png" alt="" width="200px">
       </a>
       <div class="navbar__actions">
-        <a href="https://www.sow.org.tw/event/search?title=%E4%BA%94%E8%82%A1%E6%BF%95%E5%9C%B0" class="navbar__ext-link" aria-label="參與活動">參與活動</a>
-        <a href="https://www.sow.org.tw" class="navbar__ext-link desktop-only" aria-label="荒野官網">荒野官網</a>
+        <a href="https://www.sow.org.tw/event/search?title=%E4%BA%94%E8%82%A1%E6%BF%95%E5%9C%B0" class="navbar__ext-link desktop-only" aria-label="參與活動" target="_blank">參與活動</a>
+        <a href="https://www.sow.org.tw" class="navbar__ext-link desktop-only" aria-label="荒野官網" target="_blank">荒野官網</a>
         <button class="navbar__hamburger" id="hamburger-btn" aria-expanded="false" aria-controls="nav-drawer" aria-label="開啟選單">
           <span></span><span></span><span></span>
         </button>
@@ -450,7 +454,8 @@
         <li><a href="javascript:void(0)" role="menuitem">年度時程</a></li>
         <li><a href="javascript:void(0)" role="menuitem">網路相簿</a></li>
         <!-- Mobile 補充官網按鈕 -->
-        <li><a href="https://www.sow.org.tw" role="menuitem" style="border-top: 1px solid var(--clr-light-green); margin-top: 10px;">荒野官網</a></li>
+        <li class="mobile-only"><a href="https://www.sow.org.tw" role="menuitem" style="border-top: 1px solid var(--clr-light-green); margin-top: 10px;" target="_blank">荒野官網</a></li>
+        <li class="mobile-only"><a href="https://www.sow.org.tw/event/search?title=%E4%BA%94%E8%82%A1%E6%BF%95%E5%9C%B0" role="menuitem" target="_blank">參與活動</a></li>
       </ul>
     </div>
   </header>
@@ -519,7 +524,7 @@
         <div class="reveal" style="transition-delay:0.15s">
           <h2 class="section-title" id="about-title">關於五股濕地</h2>
           <hr class="divider" />
-          <p class="about-section__meta">國家級重要濕地 ・ 新北市五股區</p>
+          <p class="about-section__meta">國家級重要濕地 ・ 新北市蘆洲區</p>
           <p class="about-section__desc">
             文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字
             文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字
@@ -655,23 +660,23 @@
     <img class="footer__logo" aria-label="五股濕地生態園區 Logo" src="images/logo-green.png" alt="">
 
     <address class="footer__info" style="font-style:normal;">
-      地址：<a href="https://maps.app.goo.gl/PuJw7zFUjeeEWEgE9">新北市蘆洲區 成蘆大橋下方</a><br />
-      信箱：<a href="mailto:sowtpe07@wilderness.tw">sowtpe07@wilderness.tw</a><br /><br />
-      <a href="https://www.hrcm.ntpc.gov.tw/HtmlPageDetail/%E4%BA%94%E8%82%A1%E6%BF%95%E5%9C%B0">高灘地工程管理處</a>｜<a href="https://www.hrcmntmp.ntpc.gov.tw/facility-detail?id=baea2841-a0de-4f87-a1c0-925fd7c9f307">新北大都會公園</a>
+      地址：<a href="https://maps.app.goo.gl/PuJw7zFUjeeEWEgE9" target="_blank">新北市蘆洲區 成蘆大橋下方</a><br />
+      信箱：<a href="mailto:sowtpe07@wilderness.tw" target="_blank">sowtpe07@wilderness.tw</a><br /><br />
+      <a href="https://www.hrcm.ntpc.gov.tw/HtmlPageDetail/%E4%BA%94%E8%82%A1%E6%BF%95%E5%9C%B0" target="_blank">高灘地工程管理處</a>｜<a href="https://www.hrcmntmp.ntpc.gov.tw/facility-detail?id=baea2841-a0de-4f87-a1c0-925fd7c9f307" target="_blank">新北大都會公園</a>
     </address>
 
     <nav class="footer__socials" aria-label="社群媒體連結">
-      <a href="https://www.facebook.com/wuguwetland/?locale=zh_TW" class="footer__social-btn" aria-label="Facebook">
+      <a href="https://www.facebook.com/wuguwetland/?locale=zh_TW" class="footer__social-btn" aria-label="Facebook" target="_blank">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
       </a>
-      <a href="https://www.instagram.com/sowtpe/" class="footer__social-btn" aria-label="Instagram">
+      <a href="https://www.instagram.com/sowtpe/" class="footer__social-btn" aria-label="Instagram" target="_blank">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
       </a>
-      <a href="https://www.youtube.com/@sowtaiwan/featured" class="footer__social-btn" aria-label="YouTube">
+      <a href="https://www.youtube.com/@sowtaiwan/featured" class="footer__social-btn" aria-label="YouTube" target="_blank">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#405A35"/></svg>
       </a>
     </nav>
-    <p class="footer__copy">© 2025 五股濕地生態園區 · 荒野保護協會</p>
+    <p class="footer__copy">© 2026 五股濕地生態園區 · <a href="https://www.sow.org.tw" target="_blank">荒野保護協會</a></p>
   </footer>
 
   <button class="back-to-top" id="back-to-top" aria-label="回到頂部">▲</button>
