@@ -137,7 +137,7 @@
       z-index: 99;
     }
     .nav-drawer.open { max-height: 500px; box-shadow: 0 8px 20px rgba(64,89,53,0.12); }
-    .nav-drawer__list { list-style: none; padding: 12px 0 20px; }
+    .nav-drawer__list { list-style: none; padding: 12px 0 20px; text-align: right;}
     .nav-drawer__list li a {
       display: block; padding: 12px 32px;
       font-size: 1rem; color: var(--clr-dark-green);
@@ -717,7 +717,7 @@
 
       // CTA 行為綁定
       ctaBtn.addEventListener('click', () => {
-        document.getElementById('news').scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
       });
 
       // Build dots
