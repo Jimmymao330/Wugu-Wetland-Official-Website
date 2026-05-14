@@ -8,7 +8,7 @@
   <meta property="og:title" content="五股濕地生態園區" />
   <meta property="og:description" content="國家級重要濕地，守護城市中的自然寶地。" />
   <meta property="og:type" content="website" />
-  <link rel="stylesheet" href="common.css" />
+  <link rel="stylesheet" href="styles/common.css" />
 </head>
 <body>
 
@@ -30,10 +30,10 @@
     <!-- Mobile drawer -->
     <div class="nav-drawer" id="nav-drawer" role="menu">
       <ul class="nav-drawer__list">
-        <li><a href="#news" role="menuitem">最新消息</a></li>
+        <li><a href="javascript:void(0)" role="menuitem">首頁</a></li>
         <li><a href="about.html" role="menuitem">關於五股濕地</a></li>
-        <li><a href="#ecology" role="menuitem">生態環境</a></li>
-        <li><a href="#species" role="menuitem">特色物種</a></li>
+        <li><a href="environment.html" role="menuitem">生態環境</a></li>
+        <li><a href="species.html" role="menuitem">特色物種</a></li>
         <li><a href="javascript:void(0)" role="menuitem">棲地工作</a></li>
         <li><a href="javascript:void(0)" role="menuitem">互動遊戲</a></li>
         <li><a href="javascript:void(0)" role="menuitem">年度時程</a></li>
@@ -90,7 +90,7 @@
               <div class="skeleton skeleton-line skeleton-line--med"></div>
             </li>
           </ul>
-          <a href="javascript:void(0)" class="btn" id="news-more-btn" aria-label="查看更多活動">更多活動 &nbsp ❯</a>
+          <a href="https://www.sow.org.tw/event/search?title=%E4%BA%94%E8%82%A1%E6%BF%95%E5%9C%B0" class="btn" id="news-more-btn" aria-label="查看更多活動">更多活動 &nbsp ❯</a>
         </div>
       </div>
     </section>
@@ -109,12 +109,16 @@
         <div class="reveal" style="transition-delay:0.15s">
           <h2 class="section-title" id="about-title">關於五股濕地</h2>
           <hr class="divider" />
-          <p class="about-section__meta">國家級重要濕地 ・ 新北市蘆洲區</p>
+          <p class="about-section__meta">國家級重要濕地 ・ 新北市蘆洲區</p><br>
           <p class="about-section__desc">
-            文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字
-            文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字
+            春天爭豔的野花<br>
+            夏天絢爛的晚霞<br>
+            秋天蒼茫的葦浪<br>
+            冬天靜謐的候鳥身影<br><br>
+            位於新北市蘆洲區的濕地生態環境，<br>
+            是國家級重要濕地，孕育著許多獨特的生物......
           </p>
-          <a href="javascript:void(0)" class="btn" aria-label="關於五股濕地詳細內容">更多內容 &nbsp ❯</a>
+          <a href="about.html" class="btn" aria-label="關於五股濕地詳細內容">更多內容 &nbsp ❯</a>
         </div>
       </div>
 
@@ -130,20 +134,20 @@
         <a href="javascript:void(0)" class="btn btn--outline" aria-label="生態環境詳細內容">詳細內容 &nbsp ❯</a>
       </div>
       <hr class="divider" style="max-width:900px;margin:0 auto 8px;padding:0 24px;display:block;" />
-      <p class="ecology-section__desc">文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字</p>
+      <!--<p class="ecology-section__desc">文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字</p>-->
       
       <div class="ecology-grid reveal">
         <div class="ecology-card">
-          <img src="images/index-photo-3.png" alt="生態環境一" loading="lazy">
-          <p class="ecology-card__label">環境介紹一</p>
+          <img src="images/index-photo-3.png" alt="五股濕地的「水域」" loading="lazy">
+          <p class="ecology-card__label">五股濕地的「水域」</p>
         </div>
         <div class="ecology-card">
-          <img src="images/index-photo-4.png" alt="生態環境二" loading="lazy">
-          <p class="ecology-card__label">環境介紹二</p>
+          <img src="images/index-photo-4.png" alt="五股濕地的「灘地」" loading="lazy">
+          <p class="ecology-card__label">五股濕地的「灘地」</p>
         </div>
         <div class="ecology-card">
-          <img src="images/index-photo-5.png" alt="生態環境三" loading="lazy">
-          <p class="ecology-card__label">環境介紹三</p>
+          <img src="images/index-photo-5.png" alt="五股濕地的「陸地」" loading="lazy">
+          <p class="ecology-card__label">五股濕地的「陸地」</p>
         </div>
       </div>
 
@@ -152,7 +156,7 @@
         <div class="map-section__img-wrap" role="img" aria-label="五股濕地互動地圖（點擊開啟）" tabindex="0">
           <div class="map-section__placeholder"><img src="images/map.png" alt="＿＿＿＿＿＿" height="300px"></div>
           <button class="btn map-btn" style="position:absolute;bottom:24px;left:50%;transform:translateX(-50%);"
-            aria-label="開啟互動地圖">
+            aria-label="開啟互動地圖" onclick="location.href='about.html#about-map'">
             互動地圖
           </button>
         </div>
@@ -265,173 +269,6 @@
   </footer>
 
   <button class="back-to-top" id="back-to-top" aria-label="回到頂部">▲</button>
-
-  <script>
-    // ──────────────────────────────────────────────
-    // 1. HAMBURGER MENU
-    // ──────────────────────────────────────────────
-    const hamburgerBtn = document.getElementById('hamburger-btn');
-    const navDrawer    = document.getElementById('nav-drawer');
-
-    hamburgerBtn.addEventListener('click', () => {
-      const isOpen = navDrawer.classList.toggle('open');
-      hamburgerBtn.classList.toggle('open', isOpen);
-      hamburgerBtn.setAttribute('aria-expanded', String(isOpen));
-    });
-
-    navDrawer.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navDrawer.classList.remove('open');
-        hamburgerBtn.classList.remove('open');
-        hamburgerBtn.setAttribute('aria-expanded', 'false');
-      });
-    });
-
-    // ──────────────────────────────────────────────
-    // 2. HERO CAROUSEL & CTA
-    // ──────────────────────────────────────────────
-    (() => {
-      const slidesWrap = document.getElementById('hero-slides');
-      const slides     = slidesWrap.querySelectorAll('.hero__slide');
-      const dotsWrap   = document.getElementById('carousel-dots');
-      const prevBtn    = document.getElementById('carousel-prev');
-      const nextBtn    = document.getElementById('carousel-next');
-      const ctaBtn     = document.getElementById('hero-cta-btn');
-      let current = 0;
-      let timer;
-
-      // CTA 行為綁定
-      ctaBtn.addEventListener('click', () => {
-        document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
-      });
-
-      // Build dots
-      slides.forEach((_, i) => {
-        const dot = document.createElement('button');
-        dot.className = 'hero__dot' + (i === 0 ? ' active' : '');
-        dot.setAttribute('role', 'tab');
-        dot.setAttribute('aria-label', `第 ${i+1} 張`);
-        dot.setAttribute('aria-selected', String(i === 0));
-        dot.addEventListener('click', () => goTo(i));
-        dotsWrap.appendChild(dot);
-      });
-
-      function goTo(idx) {
-        slides[current].removeAttribute('aria-current');
-        current = (idx + slides.length) % slides.length;
-        slidesWrap.style.transform = `translateX(-${current * 100}%)`;
-        dotsWrap.querySelectorAll('.hero__dot').forEach((d, i) => {
-          d.classList.toggle('active', i === current);
-          d.setAttribute('aria-selected', String(i === current));
-        });
-        slides[current].setAttribute('aria-current', 'true');
-        restartTimer();
-      }
-
-      function restartTimer() {
-        clearInterval(timer);
-        timer = setInterval(() => goTo(current + 1), 5000);
-      }
-
-      prevBtn.addEventListener('click', () => goTo(current - 1));
-      nextBtn.addEventListener('click', () => goTo(current + 1));
-
-      slidesWrap.addEventListener('mouseenter', () => clearInterval(timer));
-      slidesWrap.addEventListener('mouseleave', restartTimer);
-
-      slidesWrap.setAttribute('tabindex', '0');
-      slidesWrap.addEventListener('keydown', e => {
-        if (e.key === 'ArrowLeft')  goTo(current - 1);
-        if (e.key === 'ArrowRight') goTo(current + 1);
-      });
-
-      goTo(0);
-    })();
-
-    // ──────────────────────────────────────────────
-    // 3. NEWS SECTION — Mock Cache Logic
-    // ──────────────────────────────────────────────
-    (() => {
-      const MOCK_DATA = {
-        status: 'success',
-        updatedAt: new Date().toISOString(),
-        data: [
-          { id: '1', title_zh: '測試消息', date_zh: '2025/04/20', desc_zh: '文字文字文字文字文字文字文字文字文字文字文字文字', url: '#' },
-          { id: '2', title_zh: '測試消息', date_zh: '2025/04/20', desc_zh: '文字文字文字文字文字文字文字文字文字文字文字文字', url: '#' },
-          { id: '3', title_zh: '測試消息', date_zh: '2025/03/20', desc_zh: '文字文字文字文字文字文字文字文字文字文字文字文字', url: '#' }
-        ]
-      };
-
-      const newsList = document.getElementById('news-list');
-
-      function renderNews(items) {
-        if (!items || items.length === 0) {
-          newsList.innerHTML = '<li class="news-error">目前暫無最新消息。</li>';
-          return;
-        }
-        newsList.style.opacity = '0';
-        setTimeout(() => {
-          newsList.innerHTML = items.slice(0, 4).map(item => `
-            <li class="news-item">
-              <a href="${item.url}" style="display:block;text-decoration:none;color:inherit;" aria-label="${item.title_zh}">
-                <p class="news-item__title">${item.title_zh} <span class="news-item__meta" style="font-weight:400;margin-left:8px;">${item.date_zh}</span></p>
-                <p class="news-item__desc">${item.desc_zh}</p>
-              </a>
-            </li>`).join('');
-          newsList.style.transition = 'opacity 0.4s';
-          newsList.style.opacity = '1';
-        }, 200);
-      }
-
-      // Simulate async fetch
-      setTimeout(() => renderNews(MOCK_DATA.data), 800);
-    })();
-
-    // ──────────────────────────────────────────────
-    // 4. SPECIES FLIP CARD (Mobile Click Delegation)
-    // ──────────────────────────────────────────────
-    (() => {
-      const speciesGrid = document.getElementById('species-grid');
-      
-      speciesGrid.addEventListener('click', (e) => {
-        // Find closest card
-        const card = e.target.closest('.species-card');
-        if (!card) return;
-
-        // Only handle specific interaction for touch/click consistency on mobile
-        const isFlipped = card.classList.contains('is-flipped');
-        
-        // Remove flipped state from all cards
-        speciesGrid.querySelectorAll('.species-card').forEach(c => c.classList.remove('is-flipped'));
-        
-        // Toggle current card
-        if (!isFlipped) {
-          card.classList.add('is-flipped');
-        }
-      });
-    })();
-
-    // ──────────────────────────────────────────────
-    // 5. SCROLL REVEAL & BACK TO TOP
-    // ──────────────────────────────────────────────
-    (() => {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12 });
-
-      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-      const btn = document.getElementById('back-to-top');
-      window.addEventListener('scroll', () => {
-        btn.classList.toggle('visible', window.scrollY > 500);
-      }, { passive: true });
-      btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-    })();
-  </script>
+  <script src="script/index.js"></script>
 </body>
 </html>

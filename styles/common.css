@@ -255,7 +255,7 @@
       max-width: 900px; margin: 0 auto 32px; padding: 0 24px;
     }
     .ecology-grid {
-      max-width: 960px; margin: 0 auto; padding: 0 0;
+      max-width: 960px; margin: 0 auto; margin-top: 50px; padding: 0 0;
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
     }
     .ecology-card { position: relative; overflow: hidden; cursor: pointer; }

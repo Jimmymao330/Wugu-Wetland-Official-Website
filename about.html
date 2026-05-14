@@ -11,9 +11,9 @@
   <meta property="og:image" content="images/og-about.png" />
 
   <!-- 共用模組（Design Tokens、Reset、Navbar、Footer、btn、reveal）-->
-  <link rel="stylesheet" href="common.css" />
+  <link rel="stylesheet" href="styles/common.css" />
   <!-- About 頁面專屬樣式 -->
-  <link rel="stylesheet" href="about.css" />
+  <link rel="stylesheet" href="styles/about.css" />
 </head>
 <body>
 
@@ -47,10 +47,10 @@
     <!-- Mobile drawer -->
     <div class="nav-drawer" id="nav-drawer" role="menu">
       <ul class="nav-drawer__list">
-        <li><a href="index.html#news"    role="menuitem">最新消息</a></li>
-        <li><a href="index.html#about"   role="menuitem">關於五股濕地</a></li>
-        <li><a href="index.html#ecology" role="menuitem">生態環境</a></li>
-        <li><a href="index.html#species" role="menuitem">特色物種</a></li>
+        <li><a href="index.html" role="menuitem">首頁</a></li>
+        <li><a href="javascript:void(0)"   role="menuitem">關於五股濕地</a></li>
+        <li><a href="environment.html" role="menuitem">生態環境</a></li>
+        <li><a href="species.html" role="menuitem">特色物種</a></li>
         <li><a href="javascript:void(0)" role="menuitem">棲地工作</a></li>
         <li><a href="javascript:void(0)" role="menuitem">互動遊戲</a></li>
         <li><a href="javascript:void(0)" role="menuitem">年度時程</a></li>
@@ -232,7 +232,7 @@
     <section class="about-map" id="about-map" aria-labelledby="about-map-heading">
 
       <div class="about-map__header reveal">
-        <h2 class="about-map__title" id="about-map-heading">互動地圖連結</h2>
+        <h2 class="about-map__title" id="about-map-heading">互動地圖</h2>
         <hr class="about-map__divider" />
       </div>
 
@@ -370,9 +370,9 @@
   <button class="back-to-top" id="back-to-top" aria-label="回到頂部">▲</button>
 
   <!-- 共用模組（Hamburger、Reveal Observer、Back-to-top）-->
-  <script src="common.js"></script>
+  <script src="script/common.js"></script>
   <!-- About 頁面專屬邏輯 -->
-  <script src="about.js"></script>
+  <script src="script/about.js"></script>
 
 </body>
 </html>
