@@ -24,7 +24,11 @@
   <header>
     <nav class="navbar" role="navigation" aria-label="主要導覽">
       <a class="navbar__logo" href="index.html" aria-label="五股濕地生態園區 首頁">
-        <img src="images/logo-green.webp" alt="" width="200" height="44" />
+        <picture>
+          <source srcset="images/logo-green.avif 1x, images/logo-green.avif?size=400 2x" type="image/avif" />
+          <source srcset="images/logo-green.webp 1x, images/logo-green.webp?size=400 2x" type="image/webp" />
+          <img src="images/logo-green.webp" alt="五股濕地生態園區 Logo" width="200" height="44" fetchpriority="high" decoding="sync" />
+        </picture>
       </a>
       <div class="navbar__actions">
         <a href="https://www.sow.org.tw/event/search?title=%E4%BA%94%E8%82%A1%E6%BF%95%E5%9C%B0" class="navbar__ext-link desktop-only" aria-label="參與活動" target="_blank">參與活動</a>
@@ -164,7 +168,7 @@
     <svg style="position:absolute;top:-120px;left:0;right:0;width:100%;" viewBox="0 0 1440 200" xmlns="http://www.w3.org/2000/svg">
       <path d="M0,110 C 360,130 360,40 720,80 C 1080,120 1080,10 1440,30 L1440,200 L0,200 Z" fill="#E9F0E1"/>
     </svg>
-    <img class="footer__logo" aria-label="五股濕地生態園區 Logo" src="images/logo-green.webp" alt="" loading="lazy" />
+    <img class="footer__logo" aria-label="五股濕地生態園區 Logo" src="images/logo-green.webp" alt="" width="140" height="32" loading="lazy" decoding="async" />
     <address class="footer__info" style="font-style:normal;">
       地址：<a href="https://maps.app.goo.gl/PuJw7zFUjeeEWEgE9" target="_blank">新北市蘆洲區 成蘆大橋下方</a><br />
       信箱：<a href="mailto:sowtpe07@wilderness.tw" target="_blank">sowtpe07@wilderness.tw</a><br /><br />

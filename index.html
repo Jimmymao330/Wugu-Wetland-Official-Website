@@ -21,7 +21,11 @@
   <header>
     <nav class="navbar" role="navigation" aria-label="主要導覽">
       <a class="navbar__logo" href="javascript:void(0)" aria-label="五股濕地生態園區 首頁">
-        <img src="images/logo-green.webp" alt="" width="200" height="44" />
+        <picture>
+          <source srcset="images/logo-green.avif 1x, images/logo-green.avif?size=400 2x" type="image/avif" />
+          <source srcset="images/logo-green.webp 1x, images/logo-green.webp?size=400 2x" type="image/webp" />
+          <img src="images/logo-green.webp" alt="五股濕地生態園區 Logo" width="200" height="44" fetchpriority="high" decoding="sync" />
+        </picture>
       </a>
       <div class="navbar__actions">
         <a href="https://www.sow.org.tw/event/search?title=%E4%BA%94%E8%82%A1%E6%BF%95%E5%9C%B0" class="navbar__ext-link desktop-only" aria-label="參與活動" target="_blank">參與活動</a>
@@ -54,15 +58,29 @@
     <section class="hero" aria-label="主視覺輪播" id="hero">
       <div class="hero__slides" id="hero-slides" role="region" aria-live="polite">
         <div class="hero__slide" role="tabpanel" aria-label="輪播圖片 1">
-          <img src="images/index-slides-1.webp" alt="五股濕地主視覺 1">
+          <picture>
+            <source srcset="images/index-slides-1.avif 1x, images/index-slides-1.avif?size=1440 2x" type="image/avif" media="(min-width: 1024px)" />
+            <source srcset="images/index-slides-1.avif?mobile 1x, images/index-slides-1.avif?mobile-2x 2x" type="image/avif" media="(max-width: 768px)" />
+            <source srcset="images/index-slides-1.webp 1x, images/index-slides-1.webp?size=1440 2x" type="image/webp" media="(min-width: 1024px)" />
+            <source srcset="images/index-slides-1.webp?mobile 1x, images/index-slides-1.webp?mobile-2x 2x" type="image/webp" media="(max-width: 768px)" />
+            <img src="images/index-slides-1.webp" alt="五股濕地主視覺 1" width="1440" height="800" fetchpriority="high" decoding="sync" />
+          </picture>
           <div class="hero__overlay"></div>
         </div>
         <div class="hero__slide" role="tabpanel" aria-label="輪播圖片 2">
-          <img src="images/index-slides-2.webp" alt="五股濕地主視覺 2" loading="lazy">
+          <picture>
+            <source srcset="images/index-slides-2.avif 1x, images/index-slides-2.avif?size=1440 2x" type="image/avif" />
+            <source srcset="images/index-slides-2.webp 1x, images/index-slides-2.webp?size=1440 2x" type="image/webp" />
+            <img src="images/index-slides-2.webp" alt="五股濕地主視覺 2" width="1440" height="800" loading="lazy" decoding="async" />
+          </picture>
           <div class="hero__overlay"></div>
         </div>
         <div class="hero__slide" role="tabpanel" aria-label="輪播圖片 3">
-          <img src="images/index-slides-3.webp" alt="五股濕地主視覺 3" loading="lazy">
+          <picture>
+            <source srcset="images/index-slides-3.avif 1x, images/index-slides-3.avif?size=1440 2x" type="image/avif" />
+            <source srcset="images/index-slides-3.webp 1x, images/index-slides-3.webp?size=1440 2x" type="image/webp" />
+            <img src="images/index-slides-3.webp" alt="五股濕地主視覺 3" width="1440" height="800" loading="lazy" decoding="async" />
+          </picture>
           <div class="hero__overlay"></div>
         </div>
       </div>
@@ -76,7 +94,11 @@
     <section class="news-section" id="news" aria-labelledby="news-title">
       <div class="news-section__inner">
         <div class="news-section__blob-wrap reveal" aria-hidden="true">
-          <img class="blob-img" src="images/index-photo-1.webp" alt="">
+          <picture>
+            <source srcset="images/index-photo-1.avif 1x, images/index-photo-1.avif?size=400 2x" type="image/avif" />
+            <source srcset="images/index-photo-1.webp 1x, images/index-photo-1.webp?size=400 2x" type="image/webp" />
+            <img class="blob-img" src="images/index-photo-1.webp" alt="" width="300" height="300" loading="lazy" decoding="async" />
+          </picture>
         </div>
         <div class="news-section__content">
           <h2 class="section-title" id="news-title">最新消息</h2>
@@ -128,14 +150,39 @@
       <hr class="divider" style="max-width:900px;margin:0 auto 8px;padding:0 24px;display:block;" />
       
       <div class="ecology-grid reveal">
-        <div class="ecology-card"><img src="images/index-photo-3.webp" alt="五股濕地的「水域」" loading="lazy"><p class="ecology-card__label">五股濕地的「水域」</p></div>
-        <div class="ecology-card"><img src="images/index-photo-4.webp" alt="五股濕地的「灘地」" loading="lazy"><p class="ecology-card__label">五股濕地的「灘地」</p></div>
-        <div class="ecology-card"><img src="images/index-photo-5.webp" alt="五股濕地的「陸地」" loading="lazy"><p class="ecology-card__label">五股濕地的「陸地」</p></div>
+        <div class="ecology-card">
+          <picture>
+            <source srcset="images/index-photo-3.avif 1x, images/index-photo-3.avif?size=400 2x" type="image/avif" />
+            <source srcset="images/index-photo-3.webp 1x, images/index-photo-3.webp?size=400 2x" type="image/webp" />
+            <img src="images/index-photo-3.webp" alt="五股濕地的「水域」" width="400" height="300" loading="lazy" decoding="async" />
+          </picture>
+          <p class="ecology-card__label">五股濕地的「水域」</p>
+        </div>
+        <div class="ecology-card">
+          <picture>
+            <source srcset="images/index-photo-4.avif 1x, images/index-photo-4.avif?size=400 2x" type="image/avif" />
+            <source srcset="images/index-photo-4.webp 1x, images/index-photo-4.webp?size=400 2x" type="image/webp" />
+            <img src="images/index-photo-4.webp" alt="五股濕地的「灘地」" width="400" height="300" loading="lazy" decoding="async" />
+          </picture>
+          <p class="ecology-card__label">五股濕地的「灘地」</p>
+        </div>
+        <div class="ecology-card">
+          <picture>
+            <source srcset="images/index-photo-5.avif 1x, images/index-photo-5.avif?size=400 2x" type="image/avif" />
+            <source srcset="images/index-photo-5.webp 1x, images/index-photo-5.webp?size=400 2x" type="image/webp" />
+            <img src="images/index-photo-5.webp" alt="五股濕地的「陸地」" width="400" height="300" loading="lazy" decoding="async" />
+          </picture>
+          <p class="ecology-card__label">五股濕地的「陸地」</p>
+        </div>
       </div>
 
       <div class="map-section reveal" style="transition-delay:0.2s; margin-top:40px; position:relative;">
         <div class="map-section__img-wrap" role="img" aria-label="五股濕地互動地圖（點擊開啟）" tabindex="0">
-          <div class="map-section__placeholder"><img src="images/map.webp" alt="地圖佔位圖" height="300px"></div>
+          <div class="map-section__placeholder"><picture>
+              <source srcset="images/map.avif 1x, images/map.avif?size=1200 2x" type="image/avif" />
+              <source srcset="images/map.webp 1x, images/map.webp?size=1200 2x" type="image/webp" />
+              <img src="images/map.webp" alt="地圖佔位圖" width="1200" height="300" loading="lazy" decoding="async" />
+            </picture></div>
           <button class="btn map-btn" id="map-btn" style="position:absolute;bottom:24px;left:50%;transform:translateX(-50%);" aria-label="開啟互動地圖">互動地圖</button>
         </div>
       </div>
@@ -181,7 +228,11 @@
 
     <!-- PHOTO BANNER -->
     <div class="photo-banner" aria-label="五股濕地全景照片">
-      <img src="images/index-photo-bottom.webp" alt="五股濕地全景照" loading="lazy">
+      <picture>
+        <source srcset="images/index-photo-bottom.avif 1x, images/index-photo-bottom.avif?size=1600 2x" type="image/avif" />
+        <source srcset="images/index-photo-bottom.webp 1x, images/index-photo-bottom.webp?size=1600 2x" type="image/webp" />
+        <img src="images/index-photo-bottom.webp" alt="五股濕地全景照" width="1600" height="400" loading="lazy" decoding="async" />
+      </picture>
     </div>
   </main>
 
@@ -190,7 +241,7 @@
     <svg viewBox="0 0 1440 48" preserveAspectRatio="none" style="position:absolute;top:-47px;left:0;right:0;width:100%;height:48px;" aria-hidden="true">
       <path d="M0,0 C360,48 1080,48 1440,0 L1440,48 L0,48 Z" fill="#e8f0e0"/>
     </svg>
-    <img class="footer__logo" aria-label="五股濕地生態園區 Logo" src="images/logo-green.webp" alt="">
+    <img class="footer__logo" aria-label="五股濕地生態園區 Logo" src="images/logo-green.webp" alt="" width="140" height="32" loading="lazy" decoding="async" />
     <address class="footer__info" style="font-style:normal;">
       地址：<a href="https://maps.app.goo.gl/PuJw7zFUjeeEWEgE9" target="_blank">新北市蘆洲區 成蘆大橋下方</a><br />
       信箱：<a href="mailto:sowtpe07@wilderness.tw" target="_blank">sowtpe07@wilderness.tw</a><br /><br />
