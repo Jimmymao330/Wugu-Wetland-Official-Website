@@ -9,10 +9,12 @@
   <meta property="og:description" content="探索五股濕地豐富的生態環境，包含水域、灘地與陸地等多元棲地。" />
   <meta property="og:type" content="website" />
   
-  <!-- 共用模組 -->
   <link rel="stylesheet" href="styles/shared.css" />
-  <!-- 生態環境專屬樣式 -->
-  <link rel="stylesheet" href="styles/environment.css" />
+  <link rel="stylesheet" href="styles/index.css" />
+  
+  <!-- 新增：預先載入首屏最關鍵的圖片，提升 LCP 速度 -->
+  <!-- 注意：請在後端或打包工具先轉出一份 .webp 檔案 -->
+  <link rel="preload" as="image" href="images/index-slides-1.webp" type="image/webp" fetchpriority="high">
 </head>
 <body>
 
@@ -22,7 +24,7 @@
   <header>
     <nav class="navbar" role="navigation" aria-label="主要導覽">
       <a class="navbar__logo" href="index.html" aria-label="五股濕地生態園區 首頁">
-        <img src="images/logo-green.png" alt="" width="200" height="44" />
+        <img src="images/logo-green.webp" alt="" width="200" height="44" />
       </a>
       <div class="navbar__actions">
         <a href="https://www.sow.org.tw/event/search?title=%E4%BA%94%E8%82%A1%E6%BF%95%E5%9C%B0" class="navbar__ext-link desktop-only" aria-label="參與活動" target="_blank">參與活動</a>
@@ -43,8 +45,8 @@
         <li><a href="species.html" role="menuitem">特色物種</a></li>
         <li><a href="javascript:void(0)" role="menuitem">棲地工作</a></li>
         <li><a href="javascript:void(0)" role="menuitem">互動遊戲</a></li>
-        <li><a href="javascript:void(0)" role="menuitem">年度時程</a></li>
-        <li><a href="javascript:void(0)" role="menuitem">網路相簿</a></li>
+        <!--<li><a href="javascript:void(0)" role="menuitem">年度時程</a></li>-->
+        <!--<li><a href="javascript:void(0)" role="menuitem">網路相簿</a></li>-->
         <li class="mobile-only"><a href="https://www.sow.org.tw" role="menuitem" style="border-top: 1px solid var(--clr-light-green); margin-top: 10px;" target="_blank">荒野官網</a></li>
         <li class="mobile-only"><a href="https://www.sow.org.tw/event/search?title=%E4%BA%94%E8%82%A1%E6%BF%95%E5%9C%B0" role="menuitem" target="_blank">參與活動</a></li>
       </ul>
@@ -86,8 +88,11 @@
         </div>
         <div class="env-section__content-col">
           <h3 class="env-section__subtitle">文字文字文字文字文字文字</h3>
-          <p>內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介</p>
-          <p>內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介</p>
+          <p>五股溼地的水域主要由大生態池與塭仔圳組成，受到潮汐、水位變化與人工棲地改造影響，形成多樣的濕地水域生態。</p>
+          <p>大生態池原本是釣魚池，經過棲地改造後，增設淺灘與緩坡，提供鳥類棲息與覓食空間，曾吸引大量黑腹濱鷸、東方環頸鴴及雁鴨科鳥類在此活動。</p>
+          <p>水域周邊可觀察到多種濕地生物，例如弧邊管招潮、台灣厚蟹、台灣泥蟹及無齒膛臂蟹等螃蟹，也常有鷺科與鷸鴴科鳥類出沒。</p>
+          <p>塭仔圳具有悠久歷史，早期曾是運河與灌溉水道，現今則成為五股溼地重要的潮汐水域，漲退潮會影響整體濕地生態與生物棲息環境。</p>
+          <p>近年因蘆葦擴張、泥沙淤積及外來植物蔓延，部分水域逐漸陸化，影響生物棲息空間；此外，潮水流動與水位變化也會牽動濕地生態平衡與物種生存。</p>
         </div>
       </div>
     </section>
@@ -113,8 +118,11 @@
         </div>
         <div class="env-section__content-col">
           <h3 class="env-section__subtitle">文字文字文字文字文字文字</h3>
-          <p>內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介</p>
-          <p>內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介</p>
+          <p>五股溼地的灘地主要分布於疏洪沼澤公園、疏洪圳邊公園及疏洪生態公園，受到潮汐、水流與泥沙堆積影響，形成多樣的濕地生態環境。</p>
+          <p>灘地是許多生物的重要棲地，常可見小水鴨、鷺科、鷸鴴科鳥類，以及無齒膛臂蟹、紅螯膛臂蟹、大彈塗魚等生物在此覓食與活動。</p>
+          <p>過去灘地面積廣大，退潮時可觀察到大量螃蟹與水鳥聚集，但近年因蘆葦快速生長、泥沙淤積及布袋蓮蔓延，導致灘地逐漸陸化、面積縮小。</p>
+          <p>荒野保護協會與相關單位持續進行灘地營造、雜草移除及水道整理，希望恢復水鳥與濕地生物的棲息空間，目前已有小環頸鴴繁殖紀錄。</p>
+          <p>除了自然環境變遷外，人為餵食、流浪狗干擾及外來種問題，也對灘地生態造成影響，顯示濕地保育的重要性。</p>
         </div>
       </div>
     </section>
@@ -140,8 +148,9 @@
         </div>
         <div class="env-section__content-col">
           <h3 class="env-section__subtitle">文字文字文字文字文字文字</h3>
-          <p>內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介</p>
-          <p>內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介內容簡介</p>
+          <p>自民國94年起，每年8月傍晚（太陽下山前約20分鐘），會有大量燕子（如家燕、洋燕、棕沙燕）聚集飛舞，天黑後飛入蘆葦叢夜棲。</p>
+          <p>最佳觀賞地點為「蘆葦叢區與大生態池交接的自行車道」，荒野保護協會每年夏季都會舉辦賞燕活動。</p>
+          <p>因泥灘地逐漸被蘆葦覆蓋，此區目前較難觀察到水鳥。</p>
         </div>
       </div>
     </section>
@@ -155,7 +164,7 @@
     <svg style="position:absolute;top:-120px;left:0;right:0;width:100%;" viewBox="0 0 1440 200" xmlns="http://www.w3.org/2000/svg">
       <path d="M0,110 C 360,130 360,40 720,80 C 1080,120 1080,10 1440,30 L1440,200 L0,200 Z" fill="#E9F0E1"/>
     </svg>
-    <img class="footer__logo" aria-label="五股濕地生態園區 Logo" src="images/logo-green.png" alt="" loading="lazy" />
+    <img class="footer__logo" aria-label="五股濕地生態園區 Logo" src="images/logo-green.webp" alt="" loading="lazy" />
     <address class="footer__info" style="font-style:normal;">
       地址：<a href="https://maps.app.goo.gl/PuJw7zFUjeeEWEgE9" target="_blank">新北市蘆洲區 成蘆大橋下方</a><br />
       信箱：<a href="mailto:sowtpe07@wilderness.tw" target="_blank">sowtpe07@wilderness.tw</a><br /><br />
